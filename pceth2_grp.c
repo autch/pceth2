@@ -48,27 +48,33 @@ static void draw_object(const PIECE_BMP *pbmp, int dx, int dy)
 	Ldirect_DrawObject(pbmp, dx, dy, 0, 0, pbmp->header.w, pbmp->header.h);
 }
 
+static void draw_character(int pos)
+{
+	static const int s_x[GRP_BG] = {30, 64, 98};	// 立ち絵表示中心位置テーブル
+	if (*play.pgxname[pos]) {
+		draw_object(&pbmp[pos], (s_x[pos] - pbmp[pos].header.w / 2) + slide_x[pos], DISP_Y - pbmp[pos].header.h);
+	}
+}
+
 /*
  *	lbuffに画像描画
  */
 void pceth2_DrawGraphic()
 {
-//	static int pos_table[] = {30, 64, 98};	// 立ち絵表示中心位置テーブル
-
 	if (*play.pgxname[GRP_BG]) {	// 背景
 		draw_object(&pbmp[GRP_BG], 0, 0);
 	} else {
 		Ldirect_Paint(15, 0, 0, DISP_X, DISP_Y);	// 黒背景
 	}
 
-	if (*play.pgxname[GRP_R]) {	// 右
-		draw_object(&pbmp[GRP_R], (POS_R - pbmp[GRP_R].header.w / 2) + slide_x[GRP_R], DISP_Y - pbmp[GRP_R].header.h);
-	}
-	if (*play.pgxname[GRP_L]) {	// 左
-		draw_object(&pbmp[GRP_L], (POS_L - pbmp[GRP_L].header.w / 2) + slide_x[GRP_L], DISP_Y - pbmp[GRP_L].header.h);
-	}
-	if (*play.pgxname[GRP_C]) {	// 中央
-		draw_object(&pbmp[GRP_C], (POS_C - pbmp[GRP_C].header.w / 2) + slide_x[GRP_C], DISP_Y - pbmp[GRP_C].header.h);
+	if(play.gameMode == GM_MAPSELECT) {
+		draw_character(GRP_C);
+		draw_character(GRP_L);
+		draw_character(GRP_R);
+	} else {
+		draw_character(GRP_R);
+		draw_character(GRP_L);
+		draw_character(GRP_C);
 	}
 }
 

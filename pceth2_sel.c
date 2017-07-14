@@ -143,8 +143,35 @@ void pceth2_Select()
 #define CH_NOTHING	0
 #define LM_MYHOME	0
 
+static struct {
+	char const* name;
+	int const map;
+} const s_land[] = {
+	{"©‘î", 0},
+	{"¤“XŠX", 2},
+	{"ƒQ[ƒ€ƒZƒ“ƒ^[", 2}, // ƒ}ƒbƒv‡‚Á‚Ä‚¢‚é‚©•ª‚©‚ç‚È‚¢
+	{"Œö‰€", 3},
+	{"’†ŠwZ", 4}, // ƒ}ƒbƒv‡‚Á‚Ä‚¢‚é‚©•ª‚©‚ç‚È‚¢
+	{"â“¹", 4},
+	{"Z–å‘O", 4},
+	{"Z’ë", 1},
+	{"’“—Öê", 1},
+	{"— ’ë", 1},
+	{"‰º‘Ê” ", 1},
+	{"‘ÌˆçŠÙ", 1},
+	{"‘ŒÉ", 1},
+	{"}‘º", 1},
+	{"‹’®Šoº", 1},
+	{"‚PŠK˜L‰º", 1},
+	{"‚QŠK˜L‰º", 1},
+	{"‚PŠK‹³º", 1},
+	{"‚QŠK‹³º", 1},
+	{"‚RŠK˜L‰º", 1},
+	{"‚RŠK‹³º", 1},
+};
+
 /*
- *	ƒ`ƒbƒvƒLƒƒƒ‰‚ğ“Ç‚İ‚ñ‚Å‰æ–Ê‚ğÄ•`‰æ
+ *	ƒ}ƒbƒvAƒ`ƒbƒvƒLƒƒƒ‰‚ğ“Ç‚İ‚ñ‚Å‰æ–Ê‚ğÄ•`‰æ
  */
 #define FNAMELEN_CHIP	13
 
@@ -152,6 +179,8 @@ static void pceth2_loadMapChipChara()
 {
 	char buf[FNAMELEN_CHIP + 1];
 
+	pcesprintf(buf, "MAP%02d00.pgx", s_land[play.lm[play.selIndex].land].map);
+	pceth2_loadGraphic(buf, GRP_C);
 	if (play.lm[play.selIndex].chip == CH_NOTHING) {	// ƒ`ƒbƒvƒLƒƒƒ‰‚È‚µ
 		pceth2_clearGraphic(GRP_R);
 	} else {
@@ -167,11 +196,6 @@ static void pceth2_loadMapChipChara()
  */
 static void pceth2_putMapItem()
 {
-	static const char *landName[] = {
-		"©‘î",		"¤“XŠX",	"ƒQ[ƒ€ƒZƒ“ƒ^[",	"Œö‰€",		"’†ŠwZ",	"â“¹",		"Z–å‘O",
-		"Z’ë",		"’“—Öê",	"— ’ë",				"‰º‘Ê” ",	"‘ÌˆçŠÙ",	"‘ŒÉ",		"}‘º",
-		"‹’®Šoº",	"‚PŠK˜L‰º",	"‚QŠK˜L‰º",			"‚PŠK‹³º",	"‚QŠK‹³º",	"‚RŠK˜L‰º",	"‚RŠK‹³º",
-	};
 	int i;
 
 	pceth2_setPageTop();
@@ -179,8 +203,8 @@ static void pceth2_putMapItem()
 	for (i = 0; i < play.lmAmount; i++) {
 		pceth2_putKanji("@");
 		FontFuchi_GetPos(NULL, &play.selY[i]);	// yÀ•W‚ğ‹L‰¯
-		FontFuchi_Printf("%s\n", landName[play.lm[i].land]);
-		play.msglen += pcesprintf(play.msg + play.msglen, "%s\n", landName[play.lm[i].land]);
+		FontFuchi_Printf("%s\n", s_land[play.lm[i].land].name);
+		play.msglen += pcesprintf(play.msg + play.msglen, "%s\n", s_land[play.lm[i].land].name);
 	}
 	Ldirect_Update();
 }
@@ -265,6 +289,7 @@ void pceth2_MapSelect()
 			pceth2_loadScript(&play.scData, play.lm[play.selIndex].scp);
 			play.gameMode = GM_SCRIPT;
 		}
+		pceth2_clearGraphic(GRP_C);
 		pceth2_clearGraphic(GRP_R);
 		Stop_PieceMML();
 		play.selIndex = play.lmAmount = 0;
