@@ -21,27 +21,29 @@ ABCDEF E0,0,0,0Y0,0,0,0D0_-5
 
 A	l8D+24L
 
-A	V100o5@1
+A	V100o5@1  Y8,140,80,80
+B	V80o5@1 D-24 Y8,140,80,80
 
-A	r1L
+A	   r1L
+B	r8 r1L
 
-A	r4grcrar16g.fede.c.<a a.g2.>r16 r1
-A	r4grcrar16g.fedc.e.g b4>c<brgrg16&a16 g2.r4
+AB	r4grcrar16g.fede.c.<a a.g2.>r16 r1
+AB	r4grcrar16g.fedc.e.g b4>c<brgrg16&a16 g2.r4
 
-A	<a>c16r16c<a>c16r16<f>cd16e4rf16g16e.e-d<g
-A	a>c16r16c<a>cr<a16>c16d16e16 arar16g2r16
-A	r4<a>c16r16c<a>c16r16c4d4e4f4g
-A	>c<b-gfe-crg1r
+AB	<a>c16r16c<a>c16r16<f>cd16e4rf16g16e.e-d<g
+AB	a>c16r16c<a>cr<a16>c16d16e16 arar16g2r16
+AB	r4<a>c16r16c<a>c16r16c4d4e4f4g
+AB	>c<b-gfe-crg1r
 
-A	e.g4r16 e16>c16r16<b16r16g16r16e16 a4rg16g.r16e.f
-A	gf16r16>c<f16g.fcd e.d.ed4.r
-A	r4d16e16r16f.ged dc16c<b>c4.r16<a
-A	>e.d.<a>e.<a.b> c.<b.>cd4r4
+AB	e.g4r16 e16>c16r16<b16r16g16r16e16 a4rg16g.r16e.f
+AB	gf16r16>c<f16g.fcd e.d.ed4.r
+AB	r4d16e16r16f.ged dc16c<b>c4.r16<a
+AB	>e.d.<a>e.<a.b> c.<b.>cd4r4
 
-A	e.g4r16 e16>c16r16<b16r16g16r16e16 a4rb16g.r16e.f
-A	gf16r16>c<f16g.fcd e.d.ed4.r
-A	r4d16e16r16f.ged dc16<bb16>c16e4r<g16a16>c16
-A	e.d.<a>c.r16dr16d4.r16c16c2r16
+AB	e.g4r16 e16>c16r16<b16r16g16r16e16 a4rb16g.r16e.f
+AB	gf16r16>c<f16g.fcd e.d.ed4.r
+AB	r4d16e16r16f.ged dc16<bb16>c16e4r<g16a16>c16
+AB	e.d.<a>c.r16dr16d4.r16c16c2r16
 
 ;===============================================================================
 ; ÉTÉuÅEî∫ët
@@ -60,7 +62,7 @@ A	e.d.<a>c.r16dr16d4.r16c16c2r16
 
 !DPartA	c4.rcr16cr16d16r16 e4.rer16er16g16r16 f4.rfr16fr16a16r16 g4.rgr16gr16g16r16 
 
-D	V80o2@0l8D-24
+D	V90o2@4l8D-24
 
 D	r2rar16gr16 L
 D	f4rfrfr16cr16 f4rfrfr16>c16<f16r16 e4rerer16<br16> e4rerer16gr16
@@ -85,7 +87,7 @@ D	e4.rer16er16e16r16 a4.rar16ar16a16r16 f4.rd4g.c2.rg16>c16r16<
 F =1
 F	l8
 
-F	!bg!og!sg!tg16!ug16!og!cg.g. L
+F	!bg!og!sg!tg24!ug24!vg24!og!cg.g. L
 F	!FPartA
 F	[!FPartB]6
 F	!bg.g16!sg!bg16 g16 !sg!bg!tg!bg
