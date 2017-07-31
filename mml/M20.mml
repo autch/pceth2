@@ -1,4 +1,4 @@
-#Title	#20
+#Title	#20i‹P‚«j
 #Title2	(c)AQUAPLUS^Composed by ZR2U
 
 !!bg @6  V125 ?o4c   ; bass drum
@@ -29,10 +29,12 @@ A	e4rcreba b4r>c4rcd e4<a4b.>c.d c<ceg>c4r4 r1
 ;===============================================================================
 ; ƒTƒuE”º‘t
 
+!Bbell E255,130,0,220 Y6,140,80,140  ; bell
+
 B	l8D+8L
-B	V110o5@2Q8
-B	[cg>cer<g>ce<]2 [<b>g>cer<g>ce<]2 [<b->g>cer<g>ce<]2 <a>g>cer<g>ce< <g>g>cer<g>ce<
-B	[cg>cer<g>ce<]2 [<b>g>cer<g>ce<]2 [<b->g>cer<g>ce<]2 <a>g>cer<g>ce< <g>g>cer2
+B	V110o6@0Q8 !Bbell
+B	[cg>ce4<g>ce<]2 [<b>g>ce4<g>ce<]2 [<b->g>ce4<g>ce<]2 <a>g>ce4<g>ce< <g>g>ce4<g>ce<
+B	[cg>ce4<g>ce<]2 [<b>g>ce4<g>ce<]2 [<b->g>ce4<g>ce<]2 <a>g>ce4<g>ce< <g>g>cer2
 
 B	V100o5@2Q6
 B	reg>cr<ceg rcegreg>c r<cfardgb reg>c<ceg>c<
